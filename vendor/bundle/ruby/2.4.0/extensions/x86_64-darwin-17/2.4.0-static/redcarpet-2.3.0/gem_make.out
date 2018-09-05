@@ -1,0 +1,24 @@
+current directory: /Users/shun/Rails/markdown-board/vendor/bundle/ruby/2.4.0/gems/redcarpet-2.3.0/ext/redcarpet
+/Users/shun/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20180906-49667-1fe3qec.rb extconf.rb
+creating Makefile
+
+current directory: /Users/shun/Rails/markdown-board/vendor/bundle/ruby/2.4.0/gems/redcarpet-2.3.0/ext/redcarpet
+make "DESTDIR=" clean
+
+current directory: /Users/shun/Rails/markdown-board/vendor/bundle/ruby/2.4.0/gems/redcarpet-2.3.0/ext/redcarpet
+make "DESTDIR="
+compiling autolink.c
+compiling buffer.c
+compiling houdini_href_e.c
+compiling houdini_html_e.c
+compiling html.c
+compiling html_smartypants.c
+compiling markdown.c
+compiling rc_markdown.c
+compiling rc_render.c
+compiling stack.c
+linking shared-object redcarpet.bundle
+
+current directory: /Users/shun/Rails/markdown-board/vendor/bundle/ruby/2.4.0/gems/redcarpet-2.3.0/ext/redcarpet
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 redcarpet.bundle ./.gem.20180906-49667-kit82l
