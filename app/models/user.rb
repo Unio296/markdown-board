@@ -1,9 +1,17 @@
 class User < ApplicationRecord
-  before_save { email.downcase! }
-  validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  has_secure_password
+
+  #twitter認証
+  def self.find_or_create_from_auth(auth)
+    provider = auth[:provider]
+    uid = auth[:uid]
+    name = auth[:info][:name]
+    nickname = auth[:info][:nickname]
+    image_url = auth[:info][:image]
+
+    self.find_or_create_by(provider: provider, uid: uid) do |user|
+      user.name = name
+      user.nickname = nickname
+      user.image_url = image_url
+    end
+  end
 end

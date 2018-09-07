@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
 
+# twitter認証
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

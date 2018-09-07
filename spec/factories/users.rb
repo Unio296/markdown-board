@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :user do
+    provider "MyString"
+    uid "MyString"
     name "MyString"
-    email "MyString"
-    password_digest "MyString"
+    image_url "MyString"
   end
 end
