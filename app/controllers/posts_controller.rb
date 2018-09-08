@@ -6,8 +6,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    user = User.find_by(nickname: params[:user_nickname])
-    @post = user.posts.find_by(slug: params[:slug])
+    @user = User.find_by(nickname: params[:user_nickname])
+    @post = @user.posts.find_by(slug: params[:slug])
   end
 
   def new
@@ -20,11 +20,25 @@ class PostsController < ApplicationController
       flash[:success] = "Post created!"
       redirect_to user_posts_path
     else
-      render 'posts/new'
+      render 'new'
     end
   end
 
+  def edit
+    @user = User.find_by(nickname: params[:user_nickname])
+    @post = @user.posts.find_by(slug: params[:slug])
+  end
 
+  def update
+    @user = User.find_by(nickname: params[:user_nickname])
+    @post = @user.posts.find_by(slug: params[:slug])
+    if @post.update_attributes(post_params)
+      flash[:success] = "Post updated!"
+      redirect_to user_post_path(@user.nickname,@post.slug)
+    else
+      render 'edit'
+    end
+  end
   private
     def post_params
       params.require(:post).permit(:title, :content)
