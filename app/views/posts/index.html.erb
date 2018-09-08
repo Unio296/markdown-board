@@ -1,0 +1,7 @@
+
+<% @posts.all.each do |post| %>
+
+<%= link_to post.title, user_post_path(@user.nickname,post.slug) %> <br>
+
+<% end %>
+<br>

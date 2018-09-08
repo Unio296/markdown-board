@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :posts
+
   #twitter認証
   def self.find_or_create_from_auth(auth)
     provider = auth[:provider]

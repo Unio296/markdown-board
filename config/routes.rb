@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #twitter認証
-  get '/auth/:provider/callback', to: 'sessions#create', as: 'twitter_login'
+  get '/auth/:provider/callback', to: 'sessions#create', as: 'auth_login'
   get '/logout', to: 'sessions#destroy'
 
   #静的ページRoutes
@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get '/contact', to: "static_pages#contact"
   
   #ユーザのRoutes
-  resources :users, param: :nickname
+  resources :users, param: :nickname do
+    resources :posts, param: :slug
+  end
 end

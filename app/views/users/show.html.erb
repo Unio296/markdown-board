@@ -1,1 +1,6 @@
+<br><br><br><br><br><br>
+
+
 <%= image_tag @user.image_url %>, <%= @user.name %>
+
+<%= link_to 'Create a New Post', new_user_post_path(@user.nickname) %>
