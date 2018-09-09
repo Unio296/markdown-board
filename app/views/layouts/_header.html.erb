@@ -1,21 +1,30 @@
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "Markdown Board", root_path, id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <% if logged_in? %>
-              <li class="nav-item">
-                <p class="navbar-text"><%= current_user.name %></p>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'ログアウト', logout_path, class:"nav-link"%>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to 'ログイン', 'auth/twitter', class:"nav-link"%>
-              </li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+          <%= link_to "Minutes Box.", root_path, id: "logo" ,class:"navbar-brand wf-nicomoji" %>
+
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ml-auto">
+              <% if logged_in? %>
+                <li class="nav-item">
+                  <%=link_to current_user.nickname, user_path(current_user.nickname), class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Logout', logout_path, class:"nav-link"%>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to 'Login', 'auth/twitter', class:"nav-link"%>
+                </li>
+              <% end %>
+            </ul>
+
+          </div>
+        </div>
+      </nav>  
     </header>
