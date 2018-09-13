@@ -1,6 +1,24 @@
-<br><br><br><br><br><br>
 
+<%= image_tag @user.image_url %> <%= @user.name %>
 
-<%= image_tag @user.image_url %>, <%= @user.name %>
+<%= link_to 'Create a New Post', new_user_post_path(@user.nickname), class:"btn btn-primary" %>
 
-<%= link_to 'Create a New Post', new_user_post_path(@user.nickname) %>
+<h3>投稿一覧</h3>
+
+<% @posts.map do |post| %>
+
+  <div class="card col-sm-10">
+      <div class="card-body">
+      <%= link_to post.title, user_post_path(@user.nickname, post.slug),class:"card-title" %>
+      <%= link_to '編集', edit_user_post_path(@user.nickname, post.slug) ,class:"btn btn-pill btn-outline-success col-sm-1" %>
+      <%= link_to '削除', user_post_path(@user.nickname, post.slug), method: :delete ,class:"btn btn-pill btn-outline-danger col-sm-1",data:
+      {confirm: "本当に<strong>#{post.title}</strong>を削除してよろしいですか？",
+      cancel: "キャンセル",
+      commit: "削除する"},
+      title: "削除前確認" %>
+
+      <%= time_ago_in_words post.created_at %> ago
+    </div>
+  </div>
+
+<% end %>

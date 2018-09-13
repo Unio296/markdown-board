@@ -1,32 +1,6 @@
 <% provide(:title, 'Create New Post') %>
+<% provide(:button_text, 'Post') %>
+<% provide(:url, user_posts_path) %>
 <h1>New Post</h1>
 
-    <%= form_for(@post, url: user_posts_path) do |f| %>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-
-<div class="row">
-  <div class="col-sm-6">
-
-    <div class="form-group">
-      <%= f.label :content %>
-      <%= f.text_area :content , class:"form-control", id:"content"%>
-    </div>
-
-  </div>
-
-  <div class="col-sm-6" id="preview"></div>
-
-      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-      <script>
-      $(document).on('turbolinks:load', function(){
-        $('textarea').keyup(function(){
-          str = $(this).val();
-          $('#preview').html(marked(str));
-        });
-      });
-      </script>
-
-    <%= f.submit "Post", class: "btn btn-primary ml-auto" %>
-    <% end %>
-</div>
+<%= render 'post_form' %>

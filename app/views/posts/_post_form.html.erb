@@ -1,0 +1,22 @@
+<%= form_for(@post, url: yield(:url)) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <div class="row">
+    <div class="col-sm-6">
+
+      <div class="form-group">
+        <%= f.text_area :content, class:"form-control", id:"content"%>
+      </div>
+    </div>
+
+    <div class="col-sm-6 card" id="preview">
+    </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
+    <%= f.submit yield(:button_text), class: "btn btn-primary ml-auto" %>
+  </div>
+<% end %>
