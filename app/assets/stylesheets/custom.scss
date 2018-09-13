@@ -53,3 +53,25 @@ footer{
   border-bottom: 0;
   border-left: .3em solid transparent;
 }
+
+.profile-card{
+  height:250px;
+}
+
+.post-title{
+  font-size:1.5rem;
+  display:inline-block;
+  width:100%;
+}
+
+.post-content{
+  display:inline-block;
+  width:60%;
+}
+
+.post-date{
+  display:inline-block;
+  font-size:0.8rem;
+  color:gray;
+  width:15%;
+}
