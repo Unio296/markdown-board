@@ -14,15 +14,28 @@
       <h2>投稿一覧</h2>
       <% @posts.map do |post| %>
       <div class="post border-top p-2">
+        <p class="post-date p-0 m-0"><%= post.created_at.strftime("%Y年%m月%d日 %H時%M分") %>に投稿</p>
         <%= link_to truncate(post.title), user_post_path(@user.nickname, post.slug),class:"post-title" %>
-        <p class="post-content"><%= truncate(post.content) %></p>
-        <p class="post-date"><%= time_ago_in_words post.created_at %> ago </p>
-        <%= link_to '編集', edit_user_post_path(@user.nickname, post.slug) ,class:"btn btn-pill btn-outline-success" %>
-        <%= link_to '削除', user_post_path(@user.nickname, post.slug), method: :delete ,class:"btn btn-pill btn-outline-danger",data:
-      {confirm: "本当に<strong>#{post.title}</strong>を削除してよろしいですか？",
-      cancel: "キャンセル",
-      commit: "削除する"},
-      title: "削除前確認" %>
+        <p class="post-content d-inline-block"><%= truncate(post.content) %></p><!--改行を無視するため
+    --><div class="buttons d-inline-block text-right">
+          <%# 編集ボタンは自分のページまたは公開状態であれば表示%>
+          <%= link_to '編集', edit_user_post_path(@user.nickname, post.slug) ,class:"btn btn-pill btn-outline-success" if current_user?(@user) || post.published %>
+          
+          <%# 削除ボタンは自分のページであれば表示 %>
+          <%= link_to '削除', user_post_path(@user.nickname, post.slug), method: :delete ,class:"btn btn-pill btn-outline-danger",data:
+            {confirm: "本当に<strong>#{post.title}</strong>を削除してよろしいですか？",
+            cancel: "キャンセル",
+            commit: "削除する"},
+            title: "削除前確認" if current_user?(@user) %>
+
+          <div id="publicstate_form<%= post.id %>" class="d-inline-block">
+            <% if post.published %>
+              <%= render 'public', post: post, user: @user %>
+            <%else%>
+              <%= render 'unpublic', post: post, user: @user %>
+            <% end %>
+          </div>
+        </div>
 
       </div>
       <% end %>

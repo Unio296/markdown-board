@@ -5,6 +5,7 @@
 
 html{
   font-family:Helvetica , "游ゴシック", sans-serif;
+  box-sizing: border-box;
 }
 
 #logo{
@@ -58,6 +59,9 @@ footer{
   height:250px;
 }
 
+.post {
+}
+
 .post-title{
   font-size:1.5rem;
   display:inline-block;
@@ -65,13 +69,14 @@ footer{
 }
 
 .post-content{
-  display:inline-block;
-  width:60%;
+  width:75%;
+}
+
+.buttons {
+  width:25%;
 }
 
 .post-date{
-  display:inline-block;
-  font-size:0.8rem;
+  font-size:0.5rem;
   color:gray;
-  width:15%;
 }

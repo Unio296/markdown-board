@@ -1,0 +1,12 @@
+<%# 公開OFF時 %>
+
+<%# Ajaxの場合のpost,user取得 %>
+<% post ||= @post %>
+<% user ||= @user %>
+
+<%# 非公開ボタン描画 %>
+<%= form_for(post, url: published_true_user_post_path(user.nickname, post.slug), remote: true) do |f| %>
+  <%= button_tag type: 'submit', class: 'btn btn-secondary' do %>
+    <i class="fa fa-lock"></i>
+  <% end %>
+<% end %>

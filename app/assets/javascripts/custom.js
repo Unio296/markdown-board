@@ -6,4 +6,3 @@ $(document).on('turbolinks:load', function(){
     $('#preview').html(marked(str));
   });
 });
-

@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   
   #ユーザのRoutes
   resources :users, param: :nickname do
-    resources :posts, param: :slug
+    resources :posts, param: :slug do
+      member do
+        patch :published_true
+        patch :published_false
+      end
+    end
   end
 end

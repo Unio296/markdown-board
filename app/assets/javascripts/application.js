@@ -17,4 +17,5 @@
 //= require bootstrap-sprockets
 // = require data-confirm-modal
 //= require shards.min.js
+//= require marked
 //= require_tree .
