@@ -18,10 +18,10 @@
       <% end %>
       <%#投稿があるとき%>
       <% @posts.map do |post| %>
-      <div class="post border-top p-2">
-        <p class="post-date p-0 m-0"><%= post.created_at.strftime("%Y年%m月%d日 %H時%M分") %>に投稿</p>
-        <%= link_to truncate(post.title), user_post_path(@user.nickname, post.slug),class:"post-title" %>
-        <p class="post-content d-inline-block"><%= truncate(post.content) %></p><!--改行を無視するため
+      <div class="postlist border-top p-2">
+        <p class="postlist-date p-0 m-0"><%= post.created_at.strftime("%Y年%m月%d日 %H時%M分") %>に投稿</p>
+        <%= link_to truncate(post.title), user_post_path(@user.nickname, post.slug),class:"postlist-title" %>
+        <p class="postlist-content d-inline-block"><%= truncate(post.content) %></p><!--改行を無視するため
     --><div class="buttons d-inline-block text-xl-right">
           <%# 編集ボタンは自分のページまたは公開状態であれば表示%>
           <% if current_user?(@user) || post.published %>
@@ -38,7 +38,6 @@
               title: "削除前確認" do %>
               <i class="fa fa-trash fa-lg"></i>
             <% end %>
-
           <% end %>
 
           <div id="publicstate_form<%= post.id %>" class="d-inline-block">

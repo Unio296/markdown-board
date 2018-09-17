@@ -27,7 +27,7 @@ module PostsHelper
     end
   
     def markdown(text)
-        html_render = HTMLwithCoderay.new(filter_html: true, hard_wrap: true)
+        html_render = HTMLwithCoderay.new(filter_html: true, hard_wrap: true, no_images: true)  #直リンク防止のため、画像は表示させない
         options = {
             autolink: true,
             space_after_headers: true,

@@ -8,6 +8,8 @@ html{
   box-sizing: border-box;
 }
 
+
+
 #logo{
   color:#428bca;
   font-size:1.5rem;
@@ -18,6 +20,11 @@ html{
 
 #content{
   min-height:500px;
+}
+
+//flash
+.alert{
+  margin-bottom: 0;
 }
 
 //footer
@@ -60,16 +67,16 @@ footer{
 }
 
 //投稿一覧
-.post {
+.postlist {
 }
 
-.post-title{
+.postlist-title{
   font-size:1.5rem;
   display:inline-block;
   width:100%;
 }
 
-.post-content{
+.postlist-content{
   width:75%;
 }
 
@@ -78,7 +85,7 @@ footer{
   height:38px;
 }
 
-.post-date{
+.postlist-date{
   font-size:0.5rem;
   color:gray;
 }
@@ -93,3 +100,24 @@ footer{
     max-width: 100%;
   }
 }
+
+//投稿show
+.post{
+}
+
+.post-user{
+
+}
+
+.post-username{
+  font-size: 1.1rem;
+}
+
+.post-title{
+
+}
+
+.post-content{
+
+}
+

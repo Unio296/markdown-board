@@ -16,12 +16,18 @@
   <%# Header %>
   <%= render 'layouts/header' %>
 
-  <div class="container">
-    <%# flashメッセージ %>
+  <%# flashメッセージ %>
+  <% unless flash.empty? %>
     <%= render 'layouts/flash' %>
+  <% end %>
 
-    <%# 本コンテンツ %>
-    <%= yield %>
+  <div class="container-wrapper bg-light">
+    <div class="container bg-white">
+
+      <%# 本コンテンツ %>
+      <%= yield %>
+
+    </div>
   </div>
 
   <%# Footer %>

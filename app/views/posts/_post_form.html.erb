@@ -1,24 +1,27 @@
 <%= form_for(@post, url: yield(:url)) do |f| %>
-  <%# f.label :title %>
-  <%= f.text_field :title , placeholder:"タイトルを記入",class:"form-control form-control-lg mt-3 mb-3" %>
 
   <%# f.label :content %>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="form-group">
-        <div class="editor-title">
+        <%# f.label :title %>
+        <%= f.text_field :title , placeholder:"タイトルを記入",class:"form-control form-control-lg mt-3 mb-3" %>
+        <div class="editor-title d-none">
           <span>本文</span>
         </div>
-        <%= f.text_area :content, class:"form-control", id:"content" , placeholder:"本文を記入" %>
+        <%= f.text_area :content, class:"form-control", placeholder:"本文を記入" %>
       </div>
     </div>
 
-    <div class="col-md-6 card">
-        <div class="card-title border-bottom ">プレビュー</div>
+    <%# <div class="col-md-6 card">
+        <div class="card-title border-bottom">プレビュー</div>
         <div class="card-text" id="preview"></div>
-    </div>
-    <%= f.submit yield(:button_text), class: "btn btn-primary ml-auto mt-3 mb-2" %>
+    </div> %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary ml-auto m-3" %>
   </div>
 
+<script>
+var simplemde = new SimpleMDE();
+</script>
 
 <% end %>

@@ -32,6 +32,8 @@ gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
 # マークダウンjs
 gem 'marked-rails'
+# simpleMDE導入
+gem 'simplemde-rails'
 
 # twitter認証
 gem 'omniauth'
