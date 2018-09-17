@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  <meta charset="utf-8"/>
-    <title><%= full_title(yield(:title)) %></title>
-    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet" />
-    <%= render 'layouts/rails_default' %>
-    <%= render 'layouts/shim' %>
-    <%# favicon_link_tag('favicon.ico') %>
-  </head>
-  <body>
-    <%= render 'layouts/header' %>
-    
-    <%# flashメッセージ %>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-      <% fa = {"info" => "info", "success" => "check", "warning" => "warning", "danger" => "exclamation-circle" } %>
-      <div class="alert alert-<%= message_type %> alert-dismissible fade show" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
-        </button>
-        <i class="fa fa-<%= fa[message_type] %>"></i> <%= message %>
-      </div>
-      <% end %>
-      <%= yield %>
-    </div>
 
-    <%= render 'layouts/footer' %>
-    <%= debug(params) if Rails.env.development? %>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>
+    <%= full_title(yield(:title)) %>
+  </title>
+  <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet" />
+  <%= render 'layouts/rails_default' %>
+  <%= render 'layouts/shim' %>
+  <%# favicon_link_tag('favicon.ico') %>
+</head>
+
+<body>
+  <%# Header %>
+  <%= render 'layouts/header' %>
+
+  <div class="container">
+    <%# flashメッセージ %>
+    <%= render 'layouts/flash' %>
+
+    <%# 本コンテンツ %>
+    <%= yield %>
+  </div>
+
+  <%# Footer %>
+  <%= render 'layouts/footer' %>
+  <%= debug(params) if Rails.env.development? %>
+</body>
+
 </html>

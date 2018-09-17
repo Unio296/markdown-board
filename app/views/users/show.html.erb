@@ -1,6 +1,6 @@
-<div class="container mt-4 mb-4">
+<div class="container">
   <div class="row">
-    <div class="profile-card card col-sm-3">
+    <div class="profile-card card col-md-3 mt-4 mb-4">
       <%= image_tag @user.image_url, size:"64x64", alt:"profile img", class:"mt-3 ml-3"%>
       <div class="card-body">
         <div class="card-title">
@@ -10,23 +10,36 @@
       </div>
     </div>
 
-    <div class="col-sm-8 offset-sm-1">
+    <div class="col-md-8 offset-md-1 mt-4 mb-4">
       <h2>投稿一覧</h2>
+      <%#投稿がないとき%>
+      <% if @posts.empty? %>
+      <div class="post border-top p-2"> 投稿が存在しません </div>
+      <% end %>
+      <%#投稿があるとき%>
       <% @posts.map do |post| %>
       <div class="post border-top p-2">
         <p class="post-date p-0 m-0"><%= post.created_at.strftime("%Y年%m月%d日 %H時%M分") %>に投稿</p>
         <%= link_to truncate(post.title), user_post_path(@user.nickname, post.slug),class:"post-title" %>
         <p class="post-content d-inline-block"><%= truncate(post.content) %></p><!--改行を無視するため
-    --><div class="buttons d-inline-block text-right">
+    --><div class="buttons d-inline-block text-xl-right">
           <%# 編集ボタンは自分のページまたは公開状態であれば表示%>
-          <%= link_to '編集', edit_user_post_path(@user.nickname, post.slug) ,class:"btn btn-pill btn-outline-success" if current_user?(@user) || post.published %>
-          
+          <% if current_user?(@user) || post.published %>
+            <%= link_to edit_user_post_path(@user.nickname, post.slug) ,class:"btn btn-outline-success" do%>
+              <i class="fa fa-edit fa-lg"></i>
+            <% end %>
+          <% end %>
           <%# 削除ボタンは自分のページであれば表示 %>
-          <%= link_to '削除', user_post_path(@user.nickname, post.slug), method: :delete ,class:"btn btn-pill btn-outline-danger",data:
-            {confirm: "本当に<strong>#{post.title}</strong>を削除してよろしいですか？",
-            cancel: "キャンセル",
-            commit: "削除する"},
-            title: "削除前確認" if current_user?(@user) %>
+          <% if current_user?(@user) %>
+            <%= link_to user_post_path(@user.nickname, post.slug), method: :delete ,class:"btn btn-outline-danger",data:
+              {confirm: "本当に<strong>#{post.title}</strong>を削除してよろしいですか？",
+              cancel: "キャンセル",
+              commit: "削除する"},
+              title: "削除前確認" do %>
+              <i class="fa fa-trash fa-lg"></i>
+            <% end %>
+
+          <% end %>
 
           <div id="publicstate_form<%= post.id %>" class="d-inline-block">
             <% if post.published %>

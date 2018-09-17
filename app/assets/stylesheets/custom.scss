@@ -59,6 +59,7 @@ footer{
   height:250px;
 }
 
+//投稿一覧
 .post {
 }
 
@@ -73,10 +74,22 @@ footer{
 }
 
 .buttons {
-  width:25%;
+  width:173px;
+  height:38px;
 }
 
 .post-date{
   font-size:0.5rem;
   color:gray;
+}
+
+//新規投稿・編集画面
+.form-group{
+  margin: 0;
+}
+
+.container{
+  .post-form{
+    max-width: 100%;
+  }
 }

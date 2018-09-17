@@ -1,0 +1,10 @@
+<% flash.each do |message_type, message| %>
+<% fa = {"info" => "info", "success" => "check", "warning" => "warning", "danger" => "exclamation-circle" } %>
+<div class="alert alert-<%= message_type %> alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+  <i class="fa fa-<%= fa[message_type] %>"></i>
+  <%= message %>
+</div>
+<% end %>

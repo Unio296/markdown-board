@@ -7,6 +7,6 @@
 <%# 非公開ボタン描画 %>
 <%= form_for(post, url: published_true_user_post_path(user.nickname, post.slug), remote: true) do |f| %>
   <%= button_tag type: 'submit', class: 'btn btn-secondary' do %>
-    <i class="fa fa-lock"></i>
+    <i class="fa fa-lock fa-lg"></i>
   <% end %>
 <% end %>
