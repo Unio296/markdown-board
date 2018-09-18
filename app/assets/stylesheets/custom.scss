@@ -28,6 +28,8 @@ html{
 //footer
 
 footer{
+  padding-top:20px;
+  padding-bottom:5px;
   ul {
     li {
       a{
@@ -152,7 +154,7 @@ min-height:300px;
 .howtouse{
   text-align: center;
   margin-top:50px;
-  margin-bottom:50px;
+
   .howtouse-title{
     font-size:2.2rem;
     margin-bottom:30px;
@@ -160,7 +162,8 @@ min-height:300px;
   }
   .use-item{
     text-align: center;
-    margin:30px;
+    margin-top:30px;
+    margin-bottom:50px;
     .use-desc{
       margin:30px;
       font-size: 0.8rem;
