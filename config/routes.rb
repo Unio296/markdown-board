@@ -19,8 +19,4 @@ Rails.application.routes.draw do
     end
   end
 
-  #存在しないページへのルーティング
-  get '*not_found', to: 'application#routing_error'
-  post '*not_found', to: 'application#routing_error'
-
 end

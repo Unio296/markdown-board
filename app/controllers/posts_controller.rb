@@ -11,6 +11,15 @@ class PostsController < ApplicationController
   def show
     @user = User.find_by(nickname: params[:user_nickname])
     @post = @user.posts.find_by(slug: params[:slug])
+    @tweet_url = URI.encode(
+      "http://twitter.com/intent/tweet?original_referer=" +
+      request.url +
+      "&url=" +
+      request.url +
+      "&text=" +
+      " " + @post.title + " を共有します。" 
+    )
+
   end
 
 

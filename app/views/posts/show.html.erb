@@ -12,6 +12,10 @@
       <p class="postlist-date d-inline-block m-3">
         <%= @post.updated_at.strftime("%Y年%m月%d日 %H時%M分") %>に更新</p>
     </div>
+    
+    <%= link_to @tweet_url ,class:"btn btn-outline-primary btn-pill pull-right mt-3" do %>
+      <i class="fa fa-twitter fa-lg"></i>
+    <% end %>
   </div>
 
   <h1 class="post-title border-bottom">
@@ -24,31 +28,34 @@
     </div>
   </div>
 
-  <div class="text-xl-right m-4">
+  <div class="text-xl-right">
     <%# 編集ボタンは自分のページまたは公開状態であれば表示%>
     <% if current_user?(@post.user) || @post.published %>
-    <%= link_to edit_user_post_path(@post.user.nickname, @post.slug) ,class:"btn btn-outline-success" do %>
-    <i class="fa fa-edit fa-lg"></i> 編集
-    <% end %>
+      <%= link_to edit_user_post_path(@post.user.nickname, @post.slug) ,class:"btn btn-outline-success mt-3 mb-3" do %>
+        <i class="fa fa-edit fa-lg"></i> 編集
+      <% end %>
     <% end %>
     <%# 削除ボタンと公開ボタンは自分のページでのみ表示 %>
     <% if current_user?(@post.user) %>
-    <%= link_to user_post_path(@post.user.nickname, @post.slug), method: :delete ,class:"btn btn-outline-danger",data:
-                {confirm: "本当に<strong>#{@post.title}</strong>を削除してよろしいですか？",
-                cancel: "キャンセル",
-                commit: "削除する"},
-                title: "削除前確認" do %>
-    <i class="fa fa-trash fa-lg"></i> 削除
-    <% end %>
-    
-    <div id="publicstate_form<%= @post.id %>" class="d-inline-block">
-      <% if @post.published %>
-      <%= render 'users/public', post: @post, user: @post.user %>
-      <%else%>
-      <%= render 'users/unpublic', post: @post, user: @post.user %>
+
+      <%= link_to user_post_path(@post.user.nickname, @post.slug), method: :delete ,class:"btn btn-outline-danger",data:
+                  {confirm: "本当に<strong>#{@post.title}</strong>を削除してよろしいですか？",
+                  cancel: "キャンセル",
+                  commit: "削除する"},
+                  title: "削除前確認" do %>
+        <i class="fa fa-trash fa-lg"></i> 削除
       <% end %>
-    </div>
+
+      <div id="publicstate_form<%= @post.id %>" class="d-inline-block">
+        <% if @post.published %>
+          <%= render 'users/public', post: @post, user: @post.user %>
+        <%else%>
+          <%= render 'users/unpublic', post: @post, user: @post.user %>
+        <% end %>
+      </div>
+
     <% end %>
+
   </div>
 
 

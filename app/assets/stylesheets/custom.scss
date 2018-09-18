@@ -1,50 +1,55 @@
 @import "bootstrap";
 
 //logo用フォント
-.wf-nicomoji { font-family: "Nico Moji"; }
+.wf-nicomoji {
+  font-family: "Nico Moji";
+}
 
-html{
+html {
   font-family: Helvetica, "游ゴシック", sans-serif;
   box-sizing: border-box;
 }
 
-#logo{
-  color:#428bca;
-  font-size:1.4rem;
+#logo {
+  color: #428bca;
+  font-size: 1.4rem;
 }
-.logo-dot{
+
+.logo-dot {
   color: red;
 }
 
-#content{
-  min-height:500px;
+#content {
+  min-height: 500px;
 }
 
 //flash
-.alert{
+.alert {
   margin-bottom: 0;
 }
 
 //footer
 
-footer{
-  padding-top:20px;
-  padding-bottom:5px;
+footer {
+  //padding-top: 10px;
+
   ul {
     li {
-      a{
-        color:#ffffff;
+      a {
+        color: #ffffff;
         font-size: 0.7rem;
-        &:hover{
-          color:#ffffff;
+
+        &:hover {
+          color: #ffffff;
         }
       }
     }
   }
 
-  .copyright{
-    color:#ffffff;
-    font-size:0.8px;
+  .copyright {
+    margin-top:10px;
+    color: #ffffff;
+    font-size: 0.8px;
   }
 }
 
@@ -61,111 +66,111 @@ footer{
   border-left: .3em solid transparent;
 }
 
-.profile-card{
-  height:250px;
+.profile-card {
+  height: 250px;
 }
 
 //投稿一覧
-.postlist {
+.postlist {}
+
+.postlist-title {
+  font-size: 1.3rem;
+  display: inline-block;
+  width: 100%;
 }
 
-.postlist-title{
-  font-size:1.3rem;
-  display:inline-block;
-  width:100%;
-}
-
-.postlist-content{
-  width:75%;
+.postlist-content {
+  width: 75%;
 }
 
 .buttons {
-  width:173px;
-  height:38px;
+  width: 173px;
+  height: 38px;
 }
 
-.postlist-date{
-  font-size:0.8rem;
-  color:gray;
+.postlist-date {
+  font-size: 0.8rem;
+  color: gray;
 }
 
 //新規投稿・編集画面
-.form-group{
+.form-group {
   margin: 0;
 }
 
-.container{
-  .post-form{
+.container {
+  .post-form {
     max-width: 100%;
   }
 }
 
 //投稿show
-.post{
-}
+.post {}
 
-.post-user{
+.post-user {}
 
-}
-
-.post-username{
+.post-username {
   font-size: 1.3rem;
 }
 
-.post-title{
-  padding-bottom:20px;
-  font-weight:bold;
+.post-title {
+  padding-bottom: 20px;
+  font-weight: bold;
 }
 
-.post-content{
-min-height:300px;
+.post-content {
+  min-height: 300px;
 }
 
 //top page
-.top-wrapper{
-  padding-top:80px;
-  padding-bottom:60px;
-  background-image:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), image-url("top-image.jpg");
+.top-wrapper {
+  padding-top: 80px;
+  padding-bottom: 60px;
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), image-url("top-image.jpg");
   background-size: cover;
 
   text-align: center;
-  color:#ffffff;
-  .site-title{
+  color: #ffffff;
+
+  .site-title {
     margin: 35px 0 55px;
     font-size: 3.5rem;
   }
 
-  .site-title-sub{
+  .site-title-sub {
     margin: 0 0 30px;
     letter-spacing: 1px;
   }
+
   .site-title-sub::before,
   .site-title-sub::after {
     content: '';
-    display:inline-block;
-    width:140px;
-    height:2px;
+    display: inline-block;
+    width: 140px;
+    height: 2px;
     margin: 0 30px;
     background-color: #fff;
     vertical-align: middle;
   }
 }
 
-.howtouse{
+.howtouse {
   text-align: center;
-  margin-top:50px;
+  margin-top: 50px;
 
-  .howtouse-title{
-    font-size:2.2rem;
-    margin-bottom:30px;
+  .howtouse-title {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
     text-decoration: underline;
   }
-  .use-item{
+
+  .use-item {
     text-align: center;
-    margin-top:30px;
-    margin-bottom:50px;
-    .use-desc{
-      margin:30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    .use-desc {
+      margin: 30px;
       font-size: 0.8rem;
     }
   }
