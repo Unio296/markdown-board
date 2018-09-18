@@ -1,3 +1,53 @@
+<div class="top-wrapper">
+	<p class="site-title-sub">いつでもどこでもMarkdownメモWebサービス</p>
+	<h1 class="site-title wf-nicomoji">Draft Box<span class="logo-dot">.</span></h1>
+	
+	<% if logged_in? %>
+		<%= link_to 'マイページへ', user_path(current_user.nickname), class:"btn btn-success" %>
+	<% else %>
+		<%= link_to '/auth/twitter', class:"btn btn-primary" do %>
+			<i class="fa fa-twitter"></i> ログイン
+		<% end %>
+	<% end %>
+</div>
+
+<section class="howtouse">
+
+	<h2 class="howtouse-title wf-nicomoji">How to Use</h2>
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-4">
+
+				<div class="use-item">
+					<%#= image_tag '' %>
+					<i class="fa fa-edit fa-5x"></i>
+					<p class="use-desc">Markdownで下書きメモを素早く作成</p>
+				</div>
+
+			</div>
+			<div class="col-md-4">
+				
+				<div class="use-item">
+					<%#= image_tag '' %>
+					<i class="fa fa-users fa-5x"></i>
+					<p class="use-desc">投稿を公開状態で誰でも編集可能</p>
+				</div>
+			
+			</div>
+			<div class="col-md-4">
+
+				<div class="use-item">
+					<%#= image_tag '' %>
+					<i class="fa fa-share-alt fa-5x"></i>
+					<p class="use-desc">Tweetボタンで素早く共有</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
 <% if logged_in? %>
     <%= render 'layouts/login' %>
 <% else%>

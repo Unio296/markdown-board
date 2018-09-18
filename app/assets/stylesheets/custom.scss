@@ -4,18 +4,16 @@
 .wf-nicomoji { font-family: "Nico Moji"; }
 
 html{
-  font-family:Helvetica , "游ゴシック", sans-serif;
+  font-family: Helvetica, "游ゴシック", sans-serif;
   box-sizing: border-box;
 }
 
-
-
 #logo{
   color:#428bca;
-  font-size:1.5rem;
-  .logo-dot{
-    color: red;
-  }
+  font-size:1.4rem;
+}
+.logo-dot{
+  color: red;
 }
 
 #content{
@@ -31,11 +29,10 @@ html{
 
 footer{
   ul {
-    
     li {
       a{
         color:#ffffff;
-        font-size:8px;
+        font-size: 0.7rem;
         &:hover{
           color:#ffffff;
         }
@@ -45,7 +42,7 @@ footer{
 
   .copyright{
     color:#ffffff;
-    font-size:8px;
+    font-size:0.8px;
   }
 }
 
@@ -71,7 +68,7 @@ footer{
 }
 
 .postlist-title{
-  font-size:1.5rem;
+  font-size:1.3rem;
   display:inline-block;
   width:100%;
 }
@@ -86,7 +83,7 @@ footer{
 }
 
 .postlist-date{
-  font-size:0.5rem;
+  font-size:0.8rem;
   color:gray;
 }
 
@@ -110,14 +107,63 @@ footer{
 }
 
 .post-username{
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 
 .post-title{
-
+  padding-bottom:20px;
+  font-weight:bold;
 }
 
 .post-content{
-
+min-height:300px;
 }
 
+//top page
+.top-wrapper{
+  padding-top:80px;
+  padding-bottom:60px;
+  background-image:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), image-url("top-image.jpg");
+  background-size: cover;
+
+  text-align: center;
+  color:#ffffff;
+  .site-title{
+    margin: 35px 0 55px;
+    font-size: 3.5rem;
+  }
+
+  .site-title-sub{
+    margin: 0 0 30px;
+    letter-spacing: 1px;
+  }
+  .site-title-sub::before,
+  .site-title-sub::after {
+    content: '';
+    display:inline-block;
+    width:140px;
+    height:2px;
+    margin: 0 30px;
+    background-color: #fff;
+    vertical-align: middle;
+  }
+}
+
+.howtouse{
+  text-align: center;
+  margin-top:50px;
+  margin-bottom:50px;
+  .howtouse-title{
+    font-size:2.2rem;
+    margin-bottom:30px;
+    text-decoration: underline;
+  }
+  .use-item{
+    text-align: center;
+    margin:30px;
+    .use-desc{
+      margin:30px;
+      font-size: 0.8rem;
+    }
+  }
+}

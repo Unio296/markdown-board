@@ -24,14 +24,14 @@
     </div>
   </div>
 
-  <div class="text-xl-right mt-4">
+  <div class="text-xl-right m-4">
     <%# 編集ボタンは自分のページまたは公開状態であれば表示%>
     <% if current_user?(@post.user) || @post.published %>
     <%= link_to edit_user_post_path(@post.user.nickname, @post.slug) ,class:"btn btn-outline-success" do %>
     <i class="fa fa-edit fa-lg"></i> 編集
     <% end %>
     <% end %>
-    <%# 削除ボタンは自分のページであれば表示 %>
+    <%# 削除ボタンと公開ボタンは自分のページでのみ表示 %>
     <% if current_user?(@post.user) %>
     <%= link_to user_post_path(@post.user.nickname, @post.slug), method: :delete ,class:"btn btn-outline-danger",data:
                 {confirm: "本当に<strong>#{@post.title}</strong>を削除してよろしいですか？",
@@ -40,6 +40,14 @@
                 title: "削除前確認" do %>
     <i class="fa fa-trash fa-lg"></i> 削除
     <% end %>
+    
+    <div id="publicstate_form<%= @post.id %>" class="d-inline-block">
+      <% if @post.published %>
+      <%= render 'users/public', post: @post, user: @post.user %>
+      <%else%>
+      <%= render 'users/unpublic', post: @post, user: @post.user %>
+      <% end %>
+    </div>
     <% end %>
   </div>
 

@@ -1,7 +1,7 @@
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container">
           <%= link_to root_path, id: "logo" ,class:"navbar-brand wf-nicomoji" do %>
-            <i class="fa fa-inbox fa-lg"></i> Minutes Box<span class="logo-dot">.</span>
+            <i class="fa fa-inbox fa-lg"></i> Draft Box<span class="logo-dot">.</span>
           <% end %>
 
 
@@ -13,6 +13,7 @@
 
             <ul class="navbar-nav ml-auto">
               <% if logged_in? %>
+              <li class="nav-item"><%= link_to current_user.nickname, user_path(current_user.nickname),class:"nav-link" %></li>
                 <li class="nav-item dropdown show">
                     <%= image_tag current_user.image_url ,class:"nav-link dropdown-toggle", data:{toggle:"dropdown"} ,size:"50x50"%>
                     <ul class="dropdown-menu" role="menu">

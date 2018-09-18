@@ -6,7 +6,7 @@
         <div class="card-title">
           <%= @user.name %>
         </div>
-        <%= link_to '新規投稿', new_user_post_path(@user.nickname), class:"btn btn-primary " %>
+        <%= link_to '新規投稿', new_user_post_path(@user.nickname), class:"btn btn-primary " if current_user?(@user) %>
       </div>
     </div>
 
