@@ -39,6 +39,9 @@ gem 'simplemde-rails'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
+#reCAPTHCA導入
+gem 'recaptcha', require: 'recaptcha/rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

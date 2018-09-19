@@ -10,11 +10,10 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get '/terms' ,to: "static_pages#terms" 
   get '/privacy', to: "static_pages#privacy"
-  get '/contact', to: "static_pages#contact"
   
-  get '/inquiry' => 'inquiry#index'              # 入力画面
-  post '/inquiry/confirm' => 'inquiry#confirm'   # 確認画面
-  post '/inquiry/thanks' => 'inquiry#thanks'     # 送信完了画面
+  get '/inquiry', to: 'inquiry#index'              # 入力画面
+  post '/inquiry/confirm', to: 'inquiry#confirm'   # 確認画面
+  post '/inquiry/thanks', to: 'inquiry#thanks'     # 送信完了画面
 
   #ユーザのRoutes
   resources :users, param: :nickname do

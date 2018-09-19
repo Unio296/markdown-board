@@ -1,9 +1,9 @@
 <% @page_title = 'お問い合わせ' %>
-<div class="newWrap">
-  <div class="newTitle">
-    <h1>お問い合わせ</h1>
+<div class="inquiry-wrapper">
+  <div class="page-title wf-nicomoji text-center m-5">
+    <h1>Contact</h1>
   </div>
-  <div class="newContent">
+  <div class="content">
     <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
       <% if @inquiry.errors.any? %>
         <div class="alert alert-danger" role="alert">
@@ -15,15 +15,21 @@
           </ul>
         </div>
       <% end %>
-      <div class="row">
-        <div class="col-sm-4">名前<span class="text-danger">（必須）</span></div>
-        <div class="col-sm-8"><%= f.text_field :name, class: 'form-control mb-2' %></div>
-        <div class="col-sm-4">メールアドレス<span class="text-danger">（必須）</span></div>
-        <div class="col-sm-8"><%= f.text_field :email, class: 'form-control mb-2' %></div>
-        <div class="col-sm-4">お問い合わせ内容</div>
-        <div class="col-sm-8"><%= f.text_area :message, class: 'form-control mb-2', rows: '6' %></div>
+      <div class="inquiry-form mx-auto">
+
+          <%= f.label :name %> <span class="badge mr-3 badge-squared badge-danger">必須</span>
+          <%= f.text_field :name, class: 'form-control mb-4' %>
+
+          <%= f.label :email %> <span class="badge mr-3 badge-squared badge-danger">必須</span>
+          <%= f.text_field :email, class: 'form-control mb-4' %>
+
+          <%= f.label :message %> <span class="badge mr-3 badge-squared badge-danger">必須</span>
+          <%= f.text_area :message, class: 'form-control mb-4', rows: '6' %>
+          <%= recaptcha_tags %>
+          <%= f.submit '送信', class: 'btn btn-success mt-4 mb-3' %>
+        
       </div>
-      <%= f.submit '確認', class: 'btn btn-block btn-success' %>
+
     <% end %>
   </div>
 </div>

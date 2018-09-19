@@ -8,7 +8,8 @@ class InquiryController < ApplicationController
   def confirm
     # 入力値のチェック
     @inquiry = Inquiry.new(inquiry_params)
-    if @inquiry.valid?
+
+    if verify_recaptcha(model: @inquiry) && @inquiry.valid?
       # OK。確認画面を表示
       render :action => 'confirm'
     else
