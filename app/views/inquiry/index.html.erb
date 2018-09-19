@@ -26,8 +26,9 @@
           <%= f.label :message %> <span class="badge mr-3 badge-squared badge-danger">必須</span>
           <%= f.text_area :message, class: 'form-control mb-4', rows: '6' %>
           <%= recaptcha_tags %>
-          <%= f.submit '送信', class: 'btn btn-success mt-4 mb-3' %>
-        
+          <%= button_tag type:"submit", class: 'btn btn-success mt-4 mb-3' do %>
+            <i class="fa fa-envelope"></i> 送信
+          <% end %>
       </div>
 
     <% end %>
