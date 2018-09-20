@@ -177,3 +177,21 @@ footer {
 .message-confirm{
   overflow-wrap : break-word;
 }
+
+#terms, #privacy{
+  min-width:400px;
+  max-width:800px;
+  width: 80%;
+  font-size:62.5%;
+  margin: 0 auto;
+
+  h2{
+    margin-top:30px;
+    margin-bottom:15px;
+    font-size:1.5rem;
+  }
+  p{
+    font-size:0.8rem;
+    margin-bottom:1px;
+  }
+}

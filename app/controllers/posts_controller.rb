@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "Post created!"
+      flash[:success] = "投稿しました!"
       redirect_to user_path(current_user.nickname)
     else
       render 'new'
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     @user = User.find_by(nickname: params[:user_nickname])
     @post = @user.posts.find_by(slug: params[:slug])
     if @post.update_attributes(post_params)
-      flash[:success] = "Post updated!"
+      flash[:success] = "投稿を更新しました"
       redirect_to user_post_path(@user.nickname,@post.slug)
     else
       render 'edit'
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
   def destroy
     @post = current_user.posts.find_by(slug: params[:slug])   #ログイン中のuserのpost検索
     @post.destroy
-    flash[:success] = "Post deleted"
+    flash[:success] = "投稿を削除しました"
     redirect_to user_path(@post.user.nickname)
   end
 
