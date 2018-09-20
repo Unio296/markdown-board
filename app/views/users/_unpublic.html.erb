@@ -6,7 +6,10 @@
 
 <%# 非公開ボタン描画 %>
 <%= form_for(post, url: published_true_user_post_path(user.nickname, post.slug), remote: true) do |f| %>
-  <%= button_tag type: 'submit', class: 'btn btn-secondary' do %>
+  <%= button_tag type: 'submit', class: 'btn btn-light btn-squared text-white btn-unlock' do %>
+    <i class="fa fa-unlock fa-lg"></i>
+  <% end %><!-- 
+--><%= button_tag type: 'submit', class: 'btn btn-secondary btn-squared btn-lock' do %>
     <i class="fa fa-lock fa-lg"></i>
   <% end %>
 <% end %>

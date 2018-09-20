@@ -19,9 +19,7 @@ class PostsController < ApplicationController
       "&text=" +
       " " + @post.title + " を共有します。" 
     )
-
   end
-
 
   def new
     @post = current_user.posts.build
