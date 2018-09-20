@@ -94,7 +94,6 @@ class PostsController < ApplicationController
     #current_userが@userと一致するか
     def correct_user
       @user = User.find_by(nickname: params[:user_nickname])
-      debugger
       unless current_user?(@user) then
         flash[:danger] = "あなたは#{@user.nickname}ではありません"
         redirect_to user_path(@user.nickname)
