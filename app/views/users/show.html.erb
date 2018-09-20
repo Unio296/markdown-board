@@ -6,7 +6,9 @@
         <div class="card-title">
           <%= @user.name %>
         </div>
-        <%= link_to '新規投稿', new_user_post_path(@user.nickname), class:"btn btn-primary " if current_user?(@user) %>
+        <%= link_to '新規投稿', new_user_post_path(@user.nickname), class:"btn btn-primary mt-2" if current_user?(@user) %><br>
+        <%= link_to 'ユーザ削除', user_path(@user.nickname), method: :delete, 
+          data: {confirm: "#{@user.nickname}を削除します。よろしいですか？(投稿も全て削除されます)"}, class:"btn btn-danger mt-2" if current_user?(@user) %>
       </div>
     </div>
 

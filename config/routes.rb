@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post '/inquiry/thanks', to: 'inquiry#thanks'     # 送信完了画面
 
   #ユーザのRoutes
-  resources :users, param: :nickname do
+  resources :users, param: :nickname, only: [:new, :show, :destroy] do
     resources :posts, param: :slug do
       member do
         patch :published_true

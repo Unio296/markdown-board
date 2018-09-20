@@ -91,19 +91,14 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :content)
     end
 
+    #current_userが@userと一致するか
     def correct_user
       @user = User.find_by(nickname: params[:user_nickname])
+      debugger
       unless current_user?(@user) then
         flash[:danger] = "あなたは#{@user.nickname}ではありません"
         redirect_to user_path(@user.nickname)
       end
-      #@post = current_user.posts.find_by(slug: params[:slug])   #ログイン中のuserのpost検索
-      #if @post.nil? then
-      #  @user = User.find_by(nickname: params[:user_nickname])
-      #  debugger
-      #  flash[:danger] = "あなたは#{@user.nickname}ではありません"
-      #  redirect_to user_path(@user.nickname)
-      #end
     end
 
     #postが非公開の場合、本人以外編集させない

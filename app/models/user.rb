@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_many :posts
+  has_many :posts, dependent: :destroy  #userが削除されると所有しているpostsも削除される
 
   #twitter認証
   def self.find_or_create_from_auth(auth)
