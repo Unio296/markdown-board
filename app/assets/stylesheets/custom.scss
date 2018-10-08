@@ -172,6 +172,19 @@ footer {
   }
 }
 
+.guide {
+  text-align: center;
+  margin-top: 50px;
+  h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      text-decoration: underline;
+  }
+  li {
+    width:300px
+  }
+}
+
 .inquiry-form{
   min-width:400px;
   max-width:800px;

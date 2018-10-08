@@ -1,7 +1,7 @@
 class InquiryMailer < ActionMailer::Base
   
   default from: "info@draftbox"
-  # default to: "送信先"
+  default bcc: "unioblog@gmail.com"
 
   def received_email(inquiry)
     @inquiry = inquiry

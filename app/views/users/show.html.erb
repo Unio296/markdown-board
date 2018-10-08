@@ -30,7 +30,7 @@
     --><div class="buttons d-inline-block text-xl-right">
           <%# 編集ボタンは自分のページまたは公開状態であれば表示%>
           <% if current_user?(@user) || post.published %>
-            <%= link_to edit_user_post_path(@user.nickname, post.slug) ,class:"btn btn-outline-success" do%>
+            <%= link_to edit_user_post_path(@user.nickname, post.slug) ,class:"btn btn-outline-success" do %>
               <i class="fa fa-edit fa-lg"></i>
             <% end %>
           <% end %>

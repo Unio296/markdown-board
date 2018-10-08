@@ -1,6 +1,6 @@
 <div class="top-wrapper">
 	
-	<p class="site-title-sub">いつでもどこでもMarkdownメモWebサービス</p>
+	<p class="site-title-sub">オンラインMarkdownメモサービス</p>
 	<h1 class="site-title wf-nicomoji">Draft Box<span class="logo-dot">.</span></h1>
 	
 	<% if logged_in? %>
@@ -45,6 +45,32 @@
 			</div>
 		</div>
 	</div>
+</section>
+
+<section class="guide">
+	<h2 class="guide-title wf-nicomoji">GUIDE</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<%= link_to '/auth/twitter', class:"btn btn-primary" do %>
+					<i class="fa fa-twitter"></i> ログイン
+				<% end %>
+				<p>Twitterアカウントでログインする</p>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+
+		</div>
+	</div>
+
+
+	<ol>
+		<li>Twitterアカウントでログインする</li>
+		<li>メモを投稿する</li>
+		<li>鍵の設定をする</li>
+		<li>ツイートやURLでメモを共有・共同編集する</li>
+	</ul>
 </section>
 
 <% if logged_in? %>
